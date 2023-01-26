@@ -19,3 +19,7 @@ function createCopyBoard(board) {
     }
     return newBoard
 }
+//returns random number
+function getRandomIntInclusive(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min
+}

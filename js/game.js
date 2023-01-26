@@ -1,10 +1,10 @@
 const BOARD_SIZE = 14;
 const ALIENS_ROW_LENGTH = 8
 const ALIENS_ROW_COUNT = 3
-const HERO = '♆';
-const ALIEN = '👽';
-const LASER = '⤊';
-const SUPER_LASER = '1'
+const HERO = '🛸';
+const ALIEN = '👾';
+const LASER = '⚜';
+const SUPER_LASER = '🔱'
 const MEGA_LASER = '🗼'
 const SKY = 'SKY'
 
@@ -21,11 +21,9 @@ function init() {
     gAliensBottomRowIdx = 2
     gAliensLeftColIdx = 0
     gAliensRightColIdx = 8
-
     gIsSuperShotLeft = 3
     gIsLaserMega = false
     gIsLaserSuper = false
-    
     //modal
     closeModal()
     //Game
@@ -125,11 +123,12 @@ function closeModal() {
     const elModal = document.querySelector('.modal')
     elModal.style.display = 'none'
 }
-function hideStartBtn(){
+function hideStartBtn() {
     const elStartBtn = document.querySelector('.btn-start')
     elStartBtn.style.display = 'none'
 }
-function hideInstructions(){
-    const elInstructions =document.querySelector('.instructions')
+function hideInstructions() {
+    const elInstructions = document.querySelector('.instructions')
     elInstructions.style.display = 'none'
 }
+

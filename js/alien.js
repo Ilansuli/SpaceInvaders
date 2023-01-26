@@ -43,7 +43,6 @@ function handleAlienMegaHit(pos, board) {
                 gGame.aliensCount--
                 updateScore(10)
             }
-
         }
     }
 }
