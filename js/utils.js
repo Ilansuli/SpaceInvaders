@@ -8,3 +8,14 @@ function createCell(gameObject = null) {
 function getElCell(pos) {
     return document.querySelector(`[data-i='${pos.i}'][data-j='${pos.j}']`);
 }
+
+function createCopyBoard(board) {
+    var newBoard = []
+    for (var i = 0; i < board.length; i++) {
+        newBoard[i] = []
+        for (var j = 0; j < board[i].length; j++) {
+            newBoard[i][j] = board[i][j]
+        }
+    }
+    return newBoard
+}

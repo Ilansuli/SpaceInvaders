@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,18 +8,43 @@
     <title>Space Invaders</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body onload="init()" onkeydown="onKeyDown(event)">
+
+<body onkeydown="onKeyDown(event)">
+    <button class="btn-start" onclick="init()">START</button>
     <h1>Space Invaders</h1>
+    <h3>Super Shots Left : <span>3</span></h3>
     <h2>Score : <span>0</span></h2>
-    <div   class="game-container">
+    <div class="instructions">
+        <h2>
+            Hello to SPACE INVADERS.
+        </h2>
+        <p>
+            Basic rules before the game is starting
+        </p>
+        <h5>
+            1.Player's movement is with LEFT & RIGHT arrows
+        </h5>
+        <h5>
+            2.Press SPACE to shoot lasers
+        </h5>
+        <h5>
+            3.Press X for Super Fast Attack
+        </h5>
+        <h5>
+            4.Press N for a Mega Shot
+        </h5>
+    </div>
+    <div class="game-container">
 
     </div>
     <div class="modal"><span class="msg"></span>
-    <button class="btn-restart">Start Over</button></div>
+        <button class="btn-restart" onclick="init()">Start Over</button>
+    </div>
 
     <script src="js/utils.js"></script>
     <script src="js/hero.js"></script>
     <script src="js/alien.js"></script>
     <script src="js/game.js"></script>
 </body>
+
 </html>
