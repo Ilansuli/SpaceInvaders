@@ -11,8 +11,8 @@ body {
 }
 
 td {
-    width: 30px;
-    height: 30px;
+    width: 80px;
+    height: 40px;
     /* border: 1px solid #fff; */
 }
 
@@ -20,6 +20,26 @@ table {
     margin: auto;
     /* background-color: blue; */
     color: white
+}
+
+.game-info {
+    position: absolute;
+    /* float: left; */
+    top: 26%;
+    /* left: 5%; */
+    width: 18%;
+    padding: auto;
+    font-family: Georgia, serif;
+    font-size: 23px;
+    letter-spacing: 6px;
+    word-spacing: 3px;
+    color: #854CFF;
+    font-weight: 700;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: none;
+    display: none;
 }
 
 .modal {
@@ -33,33 +53,36 @@ table {
     left: 400px;
     display: none;
 }
-.msg{
+
+.msg {
     position: absolute;
     top: 100px;
     right: 340px;
-    font-size:xx-large;
+    font-size: xx-large;
 }
+
 .btn-restart {
     display: block;
     position: absolute;
     left: 300px;
     top: 200px;
-	box-shadow: -2px 0px 50px 0px #fff6af;
-	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
-	background-color:#ffec64;
-	border-radius:5px;
-	display:inline-block;
-	cursor:pointer;
-	color:#333333;
-	font-family:Georgia;
-	font-size:21px;
-	padding:2px 25px;
-	text-decoration:none;
-	text-shadow:0px 0px 0px #ffee66;
+    box-shadow: -2px 0px 50px 0px #fff6af;
+    background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+    background-color: #ffec64;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    color: #333333;
+    font-family: Georgia;
+    font-size: 21px;
+    padding: 2px 25px;
+    text-decoration: none;
+    text-shadow: 0px 0px 0px #ffee66;
 }
+
 .btn-restart:hover {
-	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
-	background-color:#ffab23;
+    background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+    background-color: #ffab23;
 }
 
 
@@ -68,27 +91,28 @@ table {
     position: absolute;
     top: 20rem;
     right: 48rem;
-	box-shadow: -2px 0px 50px 0px #fff6af;
-	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
-	background-color:#ffec64;
-	border-radius:5px;
-	display:inline-block;
-	cursor:pointer;
-	color:#333333;
-	font-family:Georgia;
-	font-size:21px;
-	padding:2px 25px;
-	text-decoration:none;
-	text-shadow:0px 0px 0px #ffee66;
+    box-shadow: -2px 0px 50px 0px #fff6af;
+    background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+    background-color: #ffec64;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    color: #333333;
+    font-family: Georgia;
+    font-size: 21px;
+    padding: 2px 25px;
+    text-decoration: none;
+    text-shadow: 0px 0px 0px #ffee66;
 }
+
 .btn-start:hover {
-	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
-	background-color:#ffab23;
+    background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+    background-color: #ffab23;
     font-size: x-large;
     padding: 5px 40px;
 }
 
-.instructions{
+.instructions {
     margin: 20px;
     padding: 15px;
     width: 200px;
@@ -96,3 +120,5 @@ table {
     background-color: #ffab23;
     display: block;
 }
+
+

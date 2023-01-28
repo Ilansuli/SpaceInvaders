@@ -1,21 +1,30 @@
 const BOARD_SIZE = 14;
 const ALIENS_ROW_LENGTH = 8
 const ALIENS_ROW_COUNT = 3
-const HERO = '🛸';
-const ALIEN = '👾';
+const HERO = 'HERO';
+const ALIEN = 'ALIEN';
 const LASER = '⚜';
 const SUPER_LASER = '🔱'
 const MEGA_LASER = '🗼'
 const SKY = 'SKY'
+
+const HERO_IMG = `<img src="img/spaceship.png">`
+const ALIEN_IMG = `<img src="img/alien.png">`
+const LASER_IMG = `<img src="img/laser-beam.png">`
+const MEGA_LASER_IMG = `<img src="img/mega-laser-beam.png">`
+const SUPER_LASER_IMG = `<img src="img/super-laser-beam.png">`
 
 // Matrix of cell objects. e.g.: {type: SKY, gameObject: ALIEN}
 var gBoard
 var gGame
 // Game's init when page load
 function init() {
-    //Remove Start screen related
+    //Undisplay Start screen related
     hideStartBtn()
     hideInstructions()
+    //Display game info
+    const elGameInfo = document.querySelector('.game-info')
+    elGameInfo.style.display = 'block'
     //Aliens Positions
     gAliensTopRowIdx = 0
     gAliensBottomRowIdx = 2
@@ -45,6 +54,7 @@ function init() {
     //score DOM
     const elScore = document.querySelector('h2 span')
     elScore.innerText = gGame.score
+
 }
 
 // Create and returns the board with aliens on top, ground at bottom
@@ -68,8 +78,14 @@ function renderBoard(board) {
     for (let i = 0; i < board.length; i++) {
         strHTML += `<tr>`
         for (let j = 0; j < board[0].length; j++) {
-            const cell = !board[i][j].gameObject ? '' : board[i][j].gameObject
-
+            var cell
+            if(board[i][j].gameObject === HERO){
+                cell = HERO_IMG
+            }else if(board[i][j].gameObject === ALIEN){
+                cell = ALIEN_IMG
+            } else{
+                cell = ''
+            }
             strHTML += `<td title="{i : ${i}, j : ${j}}" data-i="${i}"data-j="${j}"">${cell}</td>`
         }
         strHTML += `</tr>`
@@ -87,10 +103,10 @@ function createCell(gameObject = null) {
     }
 }
 // position such as: {i: 2, j: 7}
-function updateCell(pos, gameObject = null) {
+function updateCell(pos, gameObject = null,value = '') {
     gBoard[pos.i][pos.j].gameObject = gameObject
     var elCell = getElCell(pos)
-    elCell.innerHTML = gameObject || ''
+    elCell.innerHTML = value
 }
 //Update score by desired difference
 function updateScore(diff) {

@@ -4,10 +4,10 @@ const SUPER_LASER_SPEED = 30
 var gHero
 var gShootInterval
 //Super Shot
-var gIsLaserSuper 
+var gIsLaserSuper
 var gIsSuperShotLeft
 //Mega Shot
-var gIsLaserMega 
+var gIsLaserMega
 
 // var gLaserPos
 
@@ -38,7 +38,7 @@ function moveHero(ev) {
 
     //Moving to next position 
     //MODEL + DOM
-    updateCell(nextPos, HERO)
+    updateCell(nextPos, HERO, HERO_IMG)
     gHero.pos = nextPos
 }
 //return next position like { i : 2, j : 7 }
@@ -66,7 +66,7 @@ function onKeyDown(ev) {
     //When player shoots
     else if (ev.code === 'Space') {
         gIsLaserMega = false
-        gIsLaserSuper = false    
+        gIsLaserSuper = false
         shoot()
     }
     //When player shoot super shot
@@ -117,19 +117,26 @@ function blinkLaser(pos) {
     //MODEL + DOM
     //If its Super shot/Mega shot/Regular shot
 
-    var currLaser
-    if (gIsLaserMega) currLaser = MEGA_LASER
-    else if (gIsLaserSuper) currLaser = SUPER_LASER
-    else currLaser = LASER
-    updateCell(nextPos, currLaser)
+    var currLaser = checkLaserByKey()
+
+    updateCell(nextPos, currLaser[0], currLaser[1])
 
     //updating laser's position
     pos.i--
-   
+
 }
-
+function checkLaserByKey() {
+    if (gIsLaserMega) {
+        return [MEGA_LASER, MEGA_LASER_IMG]
+    }
+    else if (gIsLaserSuper) {
+        return [SUPER_LASER, SUPER_LASER_IMG]
+    }
+    else {
+        return [LASER, LASER_IMG]
+    }
+}
 //Stoping laser from continuation
-
 function stopLaser(pos, nextPos) {
     clearInterval(gShootInterval)
     gHero.isShoot = false

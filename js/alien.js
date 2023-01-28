@@ -54,11 +54,7 @@ function shiftBoardRight(board, fromJ, toJ) {
     for (let i = gAliensTopRowIdx; i <= gAliensBottomRowIdx; i++) {
         for (let j = fromJ; j < toJ; j++) {
             //Prevent laser from moving together with aliens
-            if (board[i][j].gameObject === LASER ||
-                board[i][j].gameObject === SUPER_LASER ||
-                board[i][j].gameObject === MEGA_LASER) {
-                return
-            }
+            if (checkLaserHit(board,i,j)) return
             //If its the edge of the board, move aliens down and start shiftLeft interval
             if (j === board[0].length - 1) {
                 shiftBoardDown(gBoard, gAliensTopRowIdx, gAliensBottomRowIdx)
@@ -93,11 +89,7 @@ function shiftBoardLeft(board, fromJ, toJ) {
     for (let i = gAliensTopRowIdx; i <= gAliensBottomRowIdx; i++) {
         for (let j = fromJ; j > toJ; j--) {
             //Laser movement protection
-            if (board[i][j].gameObject === LASER ||
-                board[i][j].gameObject === SUPER_LASER ||
-                board[i][j].gameObject === MEGA_LASER) {
-                return
-            }
+            if (checkLaserHit(board,i,j)) return
             if (j === 0) {
                 shiftBoardDown(gBoard, gAliensTopRowIdx, gAliensBottomRowIdx)
                 clearInterval(gIntervalAliens)
@@ -128,11 +120,7 @@ function shiftBoardDown(board, fromI, toI) {
     for (let i = fromI; i <= toI; i++) {
         for (let j = gAliensLeftColIdx; j < gAliensRightColIdx; j++) {
             //Laser movement protection
-            if (board[i][j].gameObject === LASER ||
-                board[i][j].gameObject === SUPER_LASER ||
-                board[i][j].gameObject === MEGA_LASER) {
-                return
-            }
+            if (checkLaserHit(board,i,j)) return
             //Touching player row, game lost
             if (gAliensBottomRowIdx === gHero.pos.i - 1) return gameOver()
             //New cell position in model
@@ -157,6 +145,11 @@ function moveAliens() {
         shiftBoardRight(gBoard, gAliensLeftColIdx, gAliensRightColIdx)
     }, ALIEN_SPEED)
 
+}
+function checkLaserHit(board,i,j) {
+    if (board[i][j].gameObject === LASER ||
+        board[i][j].gameObject === SUPER_LASER ||
+        board[i][j].gameObject === MEGA_LASER) return true
 }
 function freezeAliens() {
     gIsAlienFreeze = false
